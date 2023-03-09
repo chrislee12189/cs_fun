@@ -1,0 +1,46 @@
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+}
+
+
+/*
+setting width with a fixed value such as px introduces issues with responsiveness
+with a width:990px, the width looks good on desktops but is not responsive at all and will cause side scrolling on smaller screen sizes
+this can be fixed by adding a million and one breakpoints but that is not a good approach
+
+instead, setting a width using % means that it will be responsive, a width of 80% will be responsive on desktops and all other screen sizes */
+
+.parent {
+    background-color: #23424A;
+    padding: 50px;
+    width:80%;
+    /* width: 900px; */
+    margin: 0 auto;
+}
+
+
+
+.child {
+    background-color: #38CFD9;
+    width:50%;
+    /* width:750px; */
+    /* height: 250px; */
+    padding: 5em; /* 80px; */
+}
+
+/* setting a width of 750px on the child element will cause overflow. This is because the width of the child is larger than the width of the parent. 
+when we reduce our width to 50%, the content overflows vertically. This is a good example of why we should not set a fixed height.
+When we use percentages on children elements, the percentage is a reflection of the parent. So, in this case, the child has a width of 50% of the parent element
+
+ways to gain height or space without setting a fixed height. There are a few ways to work around this, one is adding  padding so that we get some space around the child content
+instead of setting a padding with px, we set it using em. 
+em and rem are responsive units
+
+1 em = 16px
+16 * 5  = 80 
+
+default font size for browsers is usually 16px
+
+em unit will look for font size of the container it is applied to, in our case, one was not set and so it becomes an inherited property
